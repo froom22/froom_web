@@ -1,0 +1,109 @@
+<div class="row" *ngIf="policyDisplay">
+    <div class="col-12">
+        Froom Policy: <br>
+
+        <textarea cols="12" rows="15" readonly style="width:100%;" wrap="soft">
+INTRODUCTION
+We at FROOM LLC respect the privacy of your personal information and, as such, make every effort to ensure your information is protected and remains private. As the owner and operator of loremipsum.io (the "Website") hereafter referred to in this Privacy Policy as "Lorem Ipsum", "us", "our" or "we", we have provided this Privacy Policy to explain how we collect, use, share and protect information about the users of our Website (hereafter referred to as “user”, “you” or "your"). For the purposes of this Agreement, any use of the terms "Lorem Ipsum", "us", "our" or "we" includes Wasai LLC, without limitation. We will not use or share your personal information with anyone except as described in this Privacy Policy.
+
+This Privacy Policy will inform you about the types of personal data we collect, the purposes for which we use the data, the ways in which the data is handled and your rights with regard to your personal data. Furthermore, this Privacy Policy is intended to satisfy the obligation of transparency under the EU General Data Protection Regulation 2016/679 ("GDPR") and the laws implementing GDPR.
+
+INFORMATION COLLECTED THROUGH YOUR USE OF OUR SERVICES
+The following are situations in which you may provide Your Information to us:
+
+When you fill out forms or fields through our Services;
+
+When you register for an account with our Service;
+
+
+        </textarea>
+        <div class="float-right">
+        
+            <button type="button" class="btn waves-light mx-2 text-white" (click)="acceptPolicy()"
+                style="background-color: #dd4b39;">
+                Continue
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="row" *ngIf="zipSelection">
+    <div class="col-12">
+       <h3> Zip Selection</h3>
+    </div>
+<hr>
+            <div class="col-6">
+              <label for="productName">ZIP ID</label>
+              <input
+                type="number" 
+                class="form-control"
+                id="productName"
+                name="productName"
+                [(ngModel)]="zipID"
+                placeholder="Nearest ZIP to your Address"
+                value=""
+                required
+              />
+              <!-- <div class="invalid-feedback">
+                Valid first name is required.
+              </div> -->
+              </div>
+              <div class="col-6" style="padding-top: 30px;">
+              <button type="button" class="btn waves-light mx-2 text-white" (click)="fetchLocations()"
+                style="background-color: #4939dd;">
+                Fetch Froom Locations
+            </button>
+            </div>
+            
+</div>
+<div *ngIf="froomLocationsData && froomLocationsData.length > 0"> 
+    <hr>
+
+    <div class="row">
+        <div class="col-12">
+            <br><br>
+        <strong> Here are the Nearest Froom Locations for the ZIP ID: {{zipID}} </strong>    
+        </div>
+
+        <div class="col-12">
+            <div *ngFor="let d of froomLocationsData; let i = index">
+                <input type="radio" id="Radio1" name="froomloc"/>
+                
+                    <table>
+                        <th><label for="Radio1"> Option {{i+1}} : Details </label></th>
+                        <tr>
+                            <td>Location Name: </td>
+                            <td>{{d.zipDetails }}</td>
+                        </tr>
+                        <tr>
+                            <td>Store Name: </td>
+                            <td>{{d.stores.storeName }}</td>
+                        </tr>
+                        <tr>
+                            <td>Address: </td>
+                            <td>{{d.stores.address }}</td>
+                        </tr>
+                        <tr>
+                            <td>Disance: </td>
+                            <td>{{d.stores.howFar }} - Miles</td>
+                        </tr>
+                        <tr>
+                            <td>Email: </td>
+                            <td>{{d.stores.email }}</td>
+                        </tr>
+                        <tr>
+                            <td>Phone: </td>
+                            <td>{{d.stores.phone }}</td>
+                        </tr>
+                        <tr>
+                            <td>Contact Person: </td>
+                            <td>{{d.stores.contactPerson }}</td>
+                        </tr>
+                    </table> 
+                    <hr> 
+            </div>
+        </div> 
+
+    </div>
+
+</div>
