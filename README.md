@@ -1,3 +1,7 @@
+In Froom Service - change the IP Address to your local ip address. 
+
+
+
 # Angular-10 - ShoppingCart + MDBootstrap + Firebase (Realtime Database) + i18n
 
 [![HitCount](http://hits.dwyl.io/ikismail/Angular-ShoppingCart.svg)](http://hits.dwyl.io/ikismail/Angular-ShoppingCart)
