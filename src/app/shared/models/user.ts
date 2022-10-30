@@ -15,13 +15,13 @@ export class User {
 
 export class UserDetail {
   $key: string;
-  firstName: string;
-  lastName: string;
+  firstName: string = 'firstNames';
+  lastName: string = 'lastNames';
   userName: string;
-  emailId: string;
-  address1: string;
-  address2: string;
-  country: string;
-  state: string;
-  zip: number;
+  emailId: string = 'test@test.com';
+  address1: string = 'Door 123, Street F';
+  address2: string = 'Lane 33';
+  country: string = 'United States';
+  state: string = 'California';
+  zip: number = 30001;
 }

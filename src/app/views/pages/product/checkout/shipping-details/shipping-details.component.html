@@ -29,6 +29,7 @@
             id="lastName"
             [(ngModel)]="userDetail.lastName"
             name="lastName"
+            value="lastName"
             required
           />
           <div class="invalid-feedback">
@@ -43,9 +44,10 @@
           <span class="text-muted">(Optional)</span>
         </label>
         <input
-          type="email"
+          type="text"
           class="form-control"
           id="email"
+          value="test@123.com"
           [(ngModel)]="userDetails.emailId"
           name="email"
         />
@@ -60,6 +62,7 @@
           type="text"
           class="form-control"
           id="address"
+          value="Door No 333"
           placeholder="1234 Main St"
           [(ngModel)]="userDetail.address1"
           name="address1"
@@ -79,6 +82,7 @@
           type="text"
           class="form-control"
           id="address2"
+          value=" Lane 322"
           placeholder="Apartment or suite"
           [(ngModel)]="userDetail.address2"
           name="address2"
@@ -96,7 +100,7 @@
             name="country"
           >
             <option value="">Choose...</option>
-            <option>United States</option>
+            <option selected>United States</option>
           </select>
           <div class="invalid-feedback">
             Please select a valid country.
@@ -112,7 +116,7 @@
             required
           >
             <option value="">Choose...</option>
-            <option>California</option>
+            <option selected>California</option>
           </select>
           <div class="invalid-feedback">
             Please provide a valid state.
@@ -124,6 +128,7 @@
             type="text"
             class="form-control"
             id="zip"
+            value="30001"
             placeholder=""
             [(ngModel)]="userDetail.zip"
             name="zip"
@@ -141,3 +146,4 @@
     </form>
   </div>
 </div>
+ 

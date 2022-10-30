@@ -32,6 +32,14 @@
           <p>
             <em>Receipt #: 34522677W</em>
           </p>
+         
+        </div>
+        <div *ngIf="selectedFroomLocation">
+          <p>
+            <em>Froom Store Details: {{selectedFroomLocation.stores.storeName }} - {{selectedFroomLocation.stores.address}}
+              - {{selectedFroomLocation.zipDetails}}
+            </em>
+          </p>
         </div>
       </div>
       <div class="row">
@@ -92,9 +100,12 @@
             </tr>
           </tbody>
         </table>
-        <button type="button" class="btn btn-success btn-lg btn-block">
-          Pay Now <span class="glyphicon glyphicon-chevron-right"></span>
-        </button>
+        <div style="margin-left: 10px;">
+          <a class="btn btn-success" [routerLink]="[
+                '/checkouts',
+                { outlets: { checkOutlet: ['payment-success'] } }
+              ]" routerLinkActive="active">Pay Now</a>
+        </div>
       </div>
     </div>
   </div>

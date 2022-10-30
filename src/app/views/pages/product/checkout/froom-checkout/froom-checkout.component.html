@@ -64,10 +64,12 @@ When you register for an account with our Service;
             <br><br>
         <strong> Here are the Nearest Froom Locations for the ZIP ID: {{zipID}} </strong>    
         </div>
+        
 
         <div class="col-12">
             <div *ngFor="let d of froomLocationsData; let i = index">
-                <input type="radio" id="Radio1" name="froomloc"/>
+                <input type="radio" id="Radio1" value="{{d.uuid}}" name="froomloc" 
+                [(ngModel)]="selectedRaido" (change)="selectedFroomZIPID()"/>
                 
                     <table>
                         <th><label for="Radio1"> Option {{i+1}} : Details </label></th>
@@ -107,3 +109,17 @@ When you register for an account with our Service;
     </div>
 
 </div>
+<div *ngIf="selectedRaido">
+    You have selected Option - <b>{{selectedRaido }}</b>
+</div>
+<div class="float-right" style="margin-left: 10px;" *ngIf="selectedRaido">
+    <a
+      class="btn btn-primary"
+      [routerLink]="[
+        '/checkouts',
+        { outlets: { checkOutlet: ['shipping-details'] } }
+      ]"
+      routerLinkActive="active"
+      >Checkout To Address</a
+    >
+  </div>

@@ -3,6 +3,7 @@ import { ProductService } from "../../../../../shared/services/product.service";
 import { Component, OnInit, ViewChild } from "@angular/core";
 import * as jspdf from "jspdf";
 import html2canvas from "html2canvas";
+import { FroomService } from "src/app/shared/services/froom/froom.service";
 declare var $: any;
 @Component({
   selector: "app-result",
@@ -14,8 +15,10 @@ export class ResultComponent implements OnInit {
   date: number;
   totalPrice = 0;
   tax = 6.4;
+  selectedFroomZip: any[];
+  selectedFroomLocation: any; 
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private froomService: FroomService) {
     /* Hiding Billing Tab Element */
     document.getElementById("productsTab").style.display = "none";
     document.getElementById("shippingTab").style.display = "none";
@@ -23,6 +26,10 @@ export class ResultComponent implements OnInit {
     document.getElementById("resultTab").style.display = "block";
 
     this.products = productService.getLocalCartProducts();
+    this.selectedFroomZip = productService.getSelectedFroomZipID();
+    
+    
+
 
     this.products.forEach((product) => {
       this.totalPrice += product.productPrice;

@@ -51,8 +51,8 @@ export class BillingDetailsComponent implements OnInit {
 
     const data = {
       ...form.value,
-      emailId: this.userDetails.emailId,
-      userId: this.userDetails.$key,
+      emailId: 'shar',
+      userId: 'sharath',
       products,
       totalPrice,
       billingDate: Date.now(),

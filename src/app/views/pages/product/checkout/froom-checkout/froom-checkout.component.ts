@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FroomService } from 'src/app/shared/services/froom/froom.service';
+import { ProductService } from 'src/app/shared/services/product.service';
 import { ToastrService } from 'src/app/shared/services/toastr.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class FroomCheckoutComponent implements OnInit {
   zipSelection: boolean;
   zipID: any;
   froomLocationsData: any[];
-  constructor(private froomService: FroomService, private toast: ToastrService) { }
+  selectedRaido: any;
+  constructor(private froomService: FroomService, private toast: ToastrService, private productService: ProductService) { }
 
   ngOnInit(): void {
     this.policyDisplay = true;
@@ -24,6 +26,16 @@ export class FroomCheckoutComponent implements OnInit {
     this.policyDisplay = false; 
     this.zipSelection = true;
   } 
+
+  selectedFroomZIPID() {
+    console.log('this.selectedRaido');
+    console.log(this.selectedRaido);
+    
+    this.productService.addSelectedFroomZipID(this.selectedRaido);
+    let zipid = this.productService.getSelectedFroomZipID();
+    console.log('test ssss');
+    console.log(zipid);
+  }
 
   fetchLocations(){
     this.froomService.getFroomLocations(this.zipID).subscribe(data=>

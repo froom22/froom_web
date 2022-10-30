@@ -7,10 +7,15 @@ export class FroomService {
 
   constructor(private http: HttpClient) { }
 
-  url = 'http://192.168.0.109:8080'
+  url = 'http://192.168.0.103:8080'
 
   public getFroomLocations(zipID: any) {
     const restURL = this.url + '/froom/zipID?zipID=30001'
+    return this.http.get(restURL);
+  }
+
+  public getFroomForUUID(uuid: any) {
+    const restURL = this.url + '/froom/uuID?uuID='+uuid;
     return this.http.get(restURL);
   }
 }

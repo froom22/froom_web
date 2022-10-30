@@ -7,6 +7,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { AuthGuard } from "../../../../shared/guards/auth_gaurd";
 import { FroomCheckoutComponent } from "./froom-checkout/froom-checkout.component";
+import { PaymentSuccessComponent } from "./payment-success/payment-success.component";
 
 export const checkoutRoutes: Routes = [
   {
@@ -37,6 +38,11 @@ export const checkoutRoutes: Routes = [
       {
         path: "result",
         component: ResultComponent,
+        outlet: "checkOutlet",
+      },
+      {
+        path: "payment-success",
+        component: PaymentSuccessComponent,
         outlet: "checkOutlet",
       },
     ],

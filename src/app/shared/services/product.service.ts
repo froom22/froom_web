@@ -117,6 +117,23 @@ export class ProductService {
     }, 500);
   }
 
+  addSelectedFroomZipID(froomZipID: any): void {
+    const a: any[] = JSON.parse(localStorage.getItem("froomZipID")) || [];
+    a.push(froomZipID);
+
+    
+    setTimeout(() => {
+      localStorage.setItem("froomZipID", JSON.stringify(a));
+    }, 500);
+  }
+
+  getSelectedFroomZipID(): any[] {
+    const zipId: any[] =
+      JSON.parse(localStorage.getItem("froomZipID")) || [];
+
+    return zipId;
+  }
+
   // Removing cart from local
   removeLocalCartProduct(product: Product) {
     const products: Product[] = JSON.parse(localStorage.getItem("avct_item"));

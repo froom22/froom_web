@@ -9,6 +9,7 @@ import { CommonModule } from "@angular/common";
 import { CheckoutComponent } from "./checkout.component";
 import { BillingDetailsComponent } from "./billing-details/billing-details.component";
 import { FroomCheckoutComponent } from './froom-checkout/froom-checkout.component';
+import { PaymentSuccessComponent } from './payment-success/payment-success.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule, CheckoutRoutingModule],
@@ -20,6 +21,7 @@ import { FroomCheckoutComponent } from './froom-checkout/froom-checkout.componen
     ResultComponent,
     CheckoutNavbarComponent,
     FroomCheckoutComponent,
+    PaymentSuccessComponent,
   ],
   exports: [CheckoutComponent],
 })
