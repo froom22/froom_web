@@ -97,4 +97,8 @@ export class AuthService {
       new firebase.auth.GoogleAuthProvider()
     );
   }
+
+  getUser() {
+    return this.subject;
+  }
 }

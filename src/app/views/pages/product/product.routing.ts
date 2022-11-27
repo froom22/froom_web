@@ -5,6 +5,8 @@ import { ProductListComponent } from "./product-list/product-list.component";
 import { Routes } from "@angular/router";
 
 import { ProductDetailComponent } from "./product-detail/product-detail.component";
+import { FroomAdminComponent } from "./froom-admin/froom-admin.component";
+import { FroomOrdersComponent } from "./froom-admin/components/froom-orders/froom-orders.component";
 
 export const ProductRoutes: Routes = [
   {
@@ -19,12 +21,20 @@ export const ProductRoutes: Routes = [
         component: ProductListComponent,
       },
       {
+        path: "froom-admin",
+        component: FroomAdminComponent,
+      },
+      {
         path: "favourite-products",
         component: FavouriteProductsComponent,
       },
       {
         path: "cart-items",
         component: CartProductsComponent,
+      },
+      {
+        path: "froom-orders",
+        component: FroomOrdersComponent,
       },
       {
         path: "checkouts",

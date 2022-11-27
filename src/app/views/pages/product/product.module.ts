@@ -2,7 +2,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
-
 // configuration and services
 import { ProductRoutes } from "./product.routing";
 
@@ -18,14 +17,16 @@ import { SharedModule } from "../../../shared/shared.module";
 import { FavouriteProductsComponent } from "./favourite-products/favourite-products.component";
 import { CartProductsComponent } from "./cart-products/cart-products.component";
 import { CartCalculatorComponent } from "./cart-calculator/cart-calculator.component";
+import { FroomAdminComponent } from './froom-admin/froom-admin.component';
+import { FroomOrdersComponent } from './froom-admin/components/froom-orders/froom-orders.component';
+
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(ProductRoutes),
     SharedModule,
-    CheckoutModule,
-  ],
+    CheckoutModule   ],
   declarations: [
     ProductComponent,
     BestProductComponent,
@@ -35,6 +36,8 @@ import { CartCalculatorComponent } from "./cart-calculator/cart-calculator.compo
     FavouriteProductsComponent,
     CartProductsComponent,
     CartCalculatorComponent,
+    FroomAdminComponent,
+    FroomOrdersComponent,
   ],
   exports: [BestProductComponent],
 })

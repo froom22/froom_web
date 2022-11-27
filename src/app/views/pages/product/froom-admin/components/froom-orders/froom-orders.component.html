@@ -1,0 +1,109 @@
+<table class="table table-striped" *ngIf="orders && orders.length > 0">
+    <thead>
+        <tr>
+            <th scope="col">Froom ID</th>
+            <th scope="col">Transaction ID</th>
+            <th scope="col">Froom Order Status</th>
+            <th scope="col">Orderd Date</th>
+            <th scope="col">Last Modified Date</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let orderData of orders">
+            <th scope="row">{{orderData.uuID}}</th>
+            <th scope="row">{{orderData.transactionID}}</th>
+            <td>{{orderData.froomOrderStatus}}</td>
+            <td>{{orderData.createdDate}}</td>
+            <td>{{orderData.updatedDate}}</td>
+            <td><button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal"
+                    (click)="fetchOrderDetails(orderData)">View</button>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+
+
+<div *ngIf="orderDetails" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Order Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" *ngIf="finalProductDetails[0]">
+                <div class="col-12" style="font-weight: bold">
+                     Order Status: {{orderDetails.froomOrderStatus}}
+                     <br> 
+                     <span *ngIf="orderDetails.comments">{{orderDetails.comments}}</span>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-12">Froom ZIP Details</div>
+                    <div *ngFor="let d of froomLocationsData; let i = index">
+                       
+                        
+                            <table>
+                                <tr>
+                                    <td>Location Name: </td>
+                                    <td>{{d.zipDetails }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Store Name: </td>
+                                    <td>{{d.stores.storeName }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Address: </td>
+                                    <td>{{d.stores.address }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Disance: </td>
+                                    <td>{{d.stores.howFar }} - Miles</td>
+                                </tr>
+                                <tr>
+                                    <td>Email: </td>
+                                    <td>{{d.stores.email }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Phone: </td>
+                                    <td>{{d.stores.phone }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Contact Person: </td>
+                                    <td>{{d.stores.contactPerson }}</td>
+                                </tr>
+                            </table> 
+                            <hr> 
+                    </div>
+                </div>
+                <hr>
+                <div *ngFor="let prod of finalProductDetails[0]; let i=index">
+                    <div class="row">
+
+                        <div class="col-12"> {{i+1}}. Product Details </div>
+                        <div class="col-6"> Product Key </div>
+                        <div class="col-6"> {{prod.key}}</div>
+                        <div class="col-6"> Product ID </div>
+                        <div class="col-6"> {{prod.productId}}</div>
+                        <div class="col-6"> Product Category </div>
+                        <div class="col-6"> {{prod.productCategory}}</div>
+                        <div class="col-6"> Product Name </div>
+                        <div class="col-6"> {{prod.productName}}</div>
+                        <div class="col-6"> Product Price </div>
+                        <div class="col-6"> {{prod.productPrice}}</div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary"
+                    (click)="refreshFroomStatus(orderDetails)">Refresh</button>
+            </div>
+        </div>
+    </div>
+</div>

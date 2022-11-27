@@ -51,7 +51,7 @@ export class BillingDetailsComponent implements OnInit {
 
     const data = {
       ...form.value,
-      emailId: 'shar',
+      emailId: 'shar@test.com',
       userId: 'sharath',
       products,
       totalPrice,
