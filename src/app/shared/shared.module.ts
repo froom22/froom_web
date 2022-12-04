@@ -1,7 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { NoProductsFoundComponent } from "./components/no-products-found/no-products-found.component";
-import { MDBBootstrapModule } from "angular-bootstrap-md";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { AngularFireAuthModule } from "@angular/fire/auth";
@@ -31,7 +30,6 @@ import { FireBaseConfig } from "./../../environments/firebase.config";
 @NgModule({
   imports: [
     CommonModule,
-    MDBBootstrapModule.forRoot(),
     AngularFireModule.initializeApp(FireBaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
@@ -54,7 +52,6 @@ import { FireBaseConfig } from "./../../environments/firebase.config";
   exports: [
     NoProductsFoundComponent,
     FormsModule,
-    MDBBootstrapModule,
     AngularFireModule,
     AngularFireAuthModule,
     AngularFireDatabaseModule,

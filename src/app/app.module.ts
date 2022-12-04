@@ -17,6 +17,7 @@ import { environment } from "../environments/environment";
 import { AngularFireModule } from "@angular/fire";
 import { FireBaseConfig } from "src/environments/firebase.config";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 /* to load and set en.json as the default application language */
 export function setupTranslateFactory(service: TranslateService) {
@@ -37,7 +38,8 @@ export function setupTranslateFactory(service: TranslateService) {
       registrationStrategy: "registerImmediately",
     }),
     AngularFireModule.initializeApp(FireBaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    NgbModule
   ],
   providers: [
     TranslateService,

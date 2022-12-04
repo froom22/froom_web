@@ -14,7 +14,10 @@ export class FroomOrdersComponent implements OnInit {
   productDetails: Product[];
   finalProductDetails: Product[];
   froomLocationsData: any[];
-  constructor(private froomService: FroomService) { }
+
+	constructor(private froomService: FroomService) {
+		
+	}
 
   ngOnInit(): void {
     this.froomService.getAllFroomOrders()
@@ -72,6 +75,10 @@ export class FroomOrdersComponent implements OnInit {
         // this.toast.error('ERROR','Error occurred while getting the Froom Locations');
       });
     
+  }
+
+  fetchLatestStatus() {
+    alert('Fetch Latest Status');
   }
 
 }
